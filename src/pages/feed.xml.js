@@ -29,9 +29,9 @@ export async function GET({ site }) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>آموزش‌های سمباده</title>
+    <title>آموزش‌ها</title>
     <link>${site}</link>
-    <description>آموزش‌های فنی و کاربردی سمباده</description>
+    <description>آموزش‌های فنی و کاربردی</description>
     <language>fa-ir</language>
     <atom:link href="${new URL('/feed.xml', site).toString()}" rel="self" type="application/rss+xml" />
 ${items}

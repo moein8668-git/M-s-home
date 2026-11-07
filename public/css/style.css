@@ -1,34 +1,37 @@
-:root {
+:root,
+[data-theme="black"] {
   color-scheme: dark;
   --content-width: 56rem;
-  --bg: #20211f;
-  --bg-soft: #292a27;
-  --surface: #282925;
-  --surface-strong: #30312c;
-  --text: #f0eee7;
-  --text-muted: #b7b2a8;
-  --accent: #d87b52;
-  --accent-soft: #513127;
-  --border: #4a4a43;
-  --border-strong: #77766c;
-  --code-bg: #111210;
+  --bg: #000000;
+  --bg-soft: #080808;
+  --surface: #101010;
+  --surface-strong: #181818;
+  --text: #f5f5f2;
+  --text-muted: #aaaaa5;
+  --accent: #d8d8d2;
+  --accent-soft: #42423d;
+  --border: #2f2f2f;
+  --border-strong: #5a5a5a;
+  --code-bg: #050505;
   --code-text: #f1efe8;
-  --shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.48);
   --radius: 4px;
 }
 
-[data-theme="black"] {
+[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #000000;
-  --bg-soft: #0b0b0b;
-  --surface: #111111;
-  --surface-strong: #181818;
-  --text: #f5f5f2;
-  --text-muted: #a9a9a3;
-  --border: #303030;
-  --border-strong: #5a5a5a;
-  --code-bg: #050505;
-  --shadow: 0 18px 44px rgba(0, 0, 0, 0.48);
+  --bg: #202020;
+  --bg-soft: #2a2a2a;
+  --surface: #282828;
+  --surface-strong: #303030;
+  --text: #f0eee7;
+  --text-muted: #b6b6b1;
+  --accent: #d8d8d2;
+  --accent-soft: #42423d;
+  --border: #4b4b4b;
+  --border-strong: #777777;
+  --code-bg: #111210;
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
 }
 
 * { box-sizing: border-box; }
@@ -289,7 +292,7 @@ body.has-sticky-topbar:not(.page-home) .container { padding-top: 74px; }
 .card:hover, .tool-card:hover { border-color: var(--border-strong); }
 
 .intro-layout { display: grid; grid-template-columns: 148px minmax(0, 1fr); align-items: start; gap: 30px; }
-.profile-pic { width: 148px; height: 148px; object-fit: cover; border: 1px solid var(--border-strong); border-radius: 50%; filter: saturate(.72); transition: filter .25s ease, transform .25s ease; }
+.profile-pic { width: 148px; height: 148px; object-fit: contain; background: #000; border: 1px solid var(--border-strong); border-radius: 50%; filter: saturate(.72); transition: filter .25s ease, transform .25s ease; }
 .profile-pic:hover { filter: saturate(1); transform: rotate(2deg); }
 .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .contact-btn, .action-btn {

@@ -4,7 +4,7 @@ interface Props {
   active?: string;
 }
 
-const { brand = "Sombade's Home", active } = Astro.props;
+const { brand = "M's Home", active } = Astro.props;
 
 const rawPath = Astro.url.pathname.replace(/\/+$/, '');
 const currentPath = active ?? (rawPath || '/');
@@ -23,6 +23,7 @@ const links = [
           href={link.href}
           class:list={[{ 'active': currentPath === link.href }]}
           aria-current={currentPath === link.href ? 'page' : undefined}
+          aria-label={link.href === '/' && currentPath !== '/' ? 'برگشت به خانه' : undefined}
         >
           {link.label}
         </a>

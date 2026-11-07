@@ -1,7 +1,7 @@
 (() => {
   const darkTheme = 'dark';
   const blackTheme = 'black';
-  const storageKey = 'sombade-theme';
+  const storageKey = 'm-theme';
 
   let savedTheme = null;
 
@@ -11,11 +11,10 @@
     // The theme still works when browser storage is unavailable.
   }
 
-  // The former charcoal theme is now the default lighter-dark mode.
-  if (savedTheme === blackTheme || savedTheme === 'night') {
-    document.documentElement.dataset.theme = blackTheme;
-  } else {
+  if (savedTheme === darkTheme) {
     document.documentElement.dataset.theme = darkTheme;
+  } else {
+    document.documentElement.dataset.theme = blackTheme;
   }
 
   const updateButton = (button, isBlack) => {
@@ -102,14 +101,15 @@
         },
       };
       const defaultWidth = 56;
-      const savedPalette = localStorage.getItem('sombade-accent') || 'Rust';
-      const savedWidth = Number(localStorage.getItem('sombade-width')) || defaultWidth;
+      const defaultPalette = 'Minimal';
+      const savedPalette = localStorage.getItem('m-accent') || defaultPalette;
+      const savedWidth = Number(localStorage.getItem('m-width')) || defaultWidth;
       const root = document.documentElement;
-      let currentPalette = palettes[savedPalette] ? savedPalette : 'Rust';
+      let currentPalette = palettes[savedPalette] ? savedPalette : defaultPalette;
 
       root.style.setProperty('--content-width', `${savedWidth}rem`);
       const applyPalette = (name) => {
-        const palette = palettes[name] || palettes.Rust;
+        const palette = palettes[name] || palettes.Minimal;
         const tones = palette[root.dataset.theme === blackTheme ? 'black' : 'dark'];
         const variables = {
           '--accent': palette.accent,
@@ -161,7 +161,7 @@
         paletteButton.style.setProperty('--swatch', colors.accent);
         paletteButton.addEventListener('click', () => {
           currentPalette = name;
-          localStorage.setItem('sombade-accent', name);
+          localStorage.setItem('m-accent', name);
           applyPalette(currentPalette);
           updatePaletteSelection();
         });
@@ -174,7 +174,7 @@
       const modeButton = settings.querySelector('.display-settings__mode');
       const updatePaletteSelection = () => {
         settings.querySelectorAll('.display-settings__theme').forEach((item) => {
-          item.classList.toggle('is-selected', item.dataset.palette === (localStorage.getItem('sombade-accent') || 'Rust'));
+          item.classList.toggle('is-selected', item.dataset.palette === (localStorage.getItem('m-accent') || defaultPalette));
         });
       };
       const updateThemeState = () => {
@@ -186,7 +186,7 @@
         root.style.setProperty('--content-width', `${width}rem`);
         widthRange.value = width;
         widthValue.textContent = `${width}rem`;
-        localStorage.setItem('sombade-width', width);
+        localStorage.setItem('m-width', width);
       };
 
       settingsToggle.addEventListener('click', () => {
