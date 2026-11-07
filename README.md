@@ -31,6 +31,6 @@ npm run build
 - Build command: `npm run build`
 - Output directory: `dist`
 - Production branch: `main`
-- Node version: `22.12.0`
+- Node version: `22.23.4`
 
 آدرس اصلی سایت: [moein8668.xyz](https://moein8668.xyz)
